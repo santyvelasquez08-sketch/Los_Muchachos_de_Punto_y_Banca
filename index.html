@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es" style=""><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Domine:wght@400;600;700&amp;family=Work+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet"/><title>Los Muchachos de Punto y Banca | Pizzería Porteña en Palermo desde 1940</title><meta content="Pizza al molde, empanadas y milanesas con tradición porteña desde 1940. Ubicados en el corazón de Palermo, CABA. Pedí online o hacé tu reserva." name="description"/><link href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🍕%3C/text%3E%3C/svg%3E" rel="icon"/><link as="image" fetchpriority="high" href="https://lh3.googleusercontent.com/aida-public/AB6AXuCJvNe2AsW_n8U8X-0-a2fF2YNIv3yyMILobUf6pAIO_-soRX4rWoJ8C1DNT9hWlpCykWwHf8h-bYNQI-AozCfphpco4jqfWNbBQgOB5p15CnwJnatairXnnt6PsIx6EzAOLm-0qq2MnVJbfT3MS5ubaBCI1f-TUPICg2xj8IBGI093KpJDngvrbFTHJlnUyAhQr9dac4ljaomXVTpxjm52sqt8iHwcgazPYlen0SPNLxy0sqzwGYRW2Ofg2Z3KgykxE3vCxV98qwN8AFE" rel="preload"/><link href="dist/styles.css" rel="stylesheet"/></head><body class="bg-background text-on-background font-body-md min-h-screen flex flex-col relative overflow-x-hidden">
+<!-- 1. HEADER (TopAppBar) -->
+<header class="fixed top-0 w-full z-50 bg-surface/95 dark:bg-surface-dim/95 backdrop-blur-md border-b border-outline-variant/30 shadow-sm transition-transform duration-300" id="main-header">
+<div class="flex justify-between items-center h-20 px-4 md:px-gutter max-w-container-max mx-auto">
+<!-- Mobile Menu Icon (NavigationDrawer Trigger) -->
+<button aria-label="Abrir menú" class="md:hidden p-2 text-on-surface hover:bg-surface-container-high rounded-full transition-colors duration-200" onclick="toggleMobileMenu()">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<!-- Brand Logo -->
+<a class="flex items-center gap-2" href="#">
+<img alt="Los Muchachos de Punto y Banca Logo" class="h-12 w-auto hidden md:block rounded-full border-2 border-outline-variant/50" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCF-lnIOxXCemJTFg3jnhXQMJ-XCtFPnyBeidQhkhoG2wiDHIHn5s7yJdhisvVCuB0WFX53FwME9MvqPIUpnAFIAtYdmbmzDH9uK6dRBP-3hqRmcPUIhL2N9XcisriIwLmXvTtn3Ow3v8tmZBLTvdYUqDrYBMLXelcqJ_b8pppTsi1O38NcJRQrosTdaQa15HVl-HUCyd9AsHRuvfd3fygt06RhP5bO9J0Lmi7RXWkte235AVN3FOO8-FBTNeWNZ9Vp23qXllceOXLux7U"/>
+<span class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed tracking-tight">Los Muchachos de Punto y Banca</span>
+</a>
+<!-- Desktop Navigation -->
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-primary dark:text-primary-fixed font-bold border-b-2 border-primary pb-1" href="#inicio">Inicio</a>
+<a class="text-on-surface-variant dark:text-on-surface hover:text-primary transition-colors duration-200" href="#menu">Menú</a>
+<a class="text-on-surface-variant dark:text-on-surface hover:text-primary transition-colors duration-200" href="#nosotros">Nosotros</a>
+<a class="text-on-surface-variant dark:text-on-surface hover:text-primary transition-colors duration-200" href="#ubicacion">Ubicación</a>
+<a class="text-on-surface-variant dark:text-on-surface hover:text-primary transition-colors duration-200" href="#ubicacion">Contacto</a>
+</nav>
+<!-- Trailing Action -->
+<a class="hidden md:flex items-center justify-center bg-primary text-on-primary font-label-bold text-label-bold px-6 py-2 rounded-full hover:bg-primary-container hover:text-on-primary-container transition-colors duration-200 shadow-[0_2px_4px_rgba(62,39,35,0.1)]" href="#pedir">
+                PEDÍ AHORA
+            </a>
+</div>
+</header>
+<!-- NavigationDrawer (Mobile) -->
+<div class="fixed inset-0 bg-black/50 z-50 hidden md:hidden" id="mobile-menu">
+<aside class="bg-surface dark:bg-surface-container-highest rounded-r-xl h-full w-80 shadow-xl flex flex-col py-6 transform -translate-x-full transition-transform duration-300" id="mobile-sidebar">
+<div class="px-6 mb-8 flex justify-between items-center">
+<span class="font-headline-lg text-headline-lg text-primary dark:text-primary-fixed">Los Muchachos</span>
+<button class="text-on-surface-variant p-2 rounded-full hover:bg-surface-container-low" onclick="toggleMobileMenu()">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</button>
+</div>
+<nav class="flex-1 overflow-y-auto px-4 flex flex-col gap-2">
+<a class="bg-primary-container text-on-primary-container rounded-full px-4 py-3 flex items-center gap-4" href="#inicio" onclick="toggleMobileMenu()">
+<span class="material-symbols-outlined" data-icon="home" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-body-lg text-body-lg font-bold">Inicio</span>
+</a>
+<a class="text-on-surface-variant px-4 py-3 flex items-center gap-4 hover:bg-surface-container-low rounded-full transition-colors" href="#menu" onclick="toggleMobileMenu()">
+<span class="material-symbols-outlined" data-icon="menu_book">menu_book</span>
+<span class="font-body-lg text-body-lg">Menú</span>
+</a>
+<a class="text-on-surface-variant px-4 py-3 flex items-center gap-4 hover:bg-surface-container-low rounded-full transition-colors" href="#nosotros" onclick="toggleMobileMenu()">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+<span class="font-body-lg text-body-lg">Nosotros</span>
+</a>
+<a class="text-on-surface-variant px-4 py-3 flex items-center gap-4 hover:bg-surface-container-low rounded-full transition-colors" href="#ubicacion" onclick="toggleMobileMenu()">
+<span class="material-symbols-outlined" data-icon="location_on">location_on</span>
+<span class="font-body-lg text-body-lg">Ubicación</span>
+</a>
+<a class="text-on-surface-variant px-4 py-3 flex items-center gap-4 hover:bg-surface-container-low rounded-full transition-colors" href="#ubicacion" onclick="toggleMobileMenu()">
+<span class="material-symbols-outlined" data-icon="call">call</span>
+<span class="font-body-lg text-body-lg">Contacto</span>
+</a>
+</nav>
+<div class="px-6 mt-auto">
+<a class="w-full flex items-center justify-center bg-primary text-on-primary font-label-bold text-label-bold px-6 py-3 rounded-full hover:bg-primary-container hover:text-on-primary-container transition-colors duration-200" href="#pedir" onclick="toggleMobileMenu()">
+                    PEDÍ AHORA
+                </a>
+</div>
+</aside>
+</div>
+<!-- Main Content-->
+<main class="flex-1 w-full mt-20">
+<!-- 2. HERO SECTION -->
+<section class="relative w-full min-h-[85vh] flex items-center justify-center pt-md pb-xl px-4 md:px-gutter" id="inicio" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCJvNe2AsW_n8U8X-0-a2fF2YNIv3yyMILobUf6pAIO_-soRX4rWoJ8C1DNT9hWlpCykWwHf8h-bYNQI-AozCfphpco4jqfWNbBQgOB5p15CnwJnatairXnnt6PsIx6EzAOLm-0qq2MnVJbfT3MS5ubaBCI1f-TUPICg2xj8IBGI093KpJDngvrbFTHJlnUyAhQr9dac4ljaomXVTpxjm52sqt8iHwcgazPYlen0SPNLxy0sqzwGYRW2Ofg2Z3KgykxE3vCxV98qwN8AFE"); background-size: cover; background-position: center center;'>
+<!-- Dark overlay for readability -->
+<div class="absolute inset-0 bg-black/60"></div>
+<div class="relative z-10 max-w-container-max mx-auto flex flex-col items-center text-center gap-md">
+<span class="inline-block px-4 py-1 rounded-full bg-secondary-container/90 text-on-secondary-container font-label-bold text-label-bold border border-secondary-fixed/50 backdrop-blur-sm shadow-sm">
+                    DESDE 1940
+                </span>
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-primary max-w-4xl drop-shadow-lg">
+                    La pizza de barrio que enamora a Palermo
+                </h1>
+<p class="font-body-lg text-body-lg text-surface-container-highest max-w-2xl drop-shadow-md">
+                    Tradición al molde y sabor porteño auténtico. Preparada con pasión en nuestro horno de barro, como manda la historia.
+                </p>
+<div class="flex flex-col sm:flex-row gap-4 mt-sm w-full sm:w-auto">
+<a class="flex items-center justify-center gap-2 bg-primary text-on-primary font-label-bold text-label-bold px-8 py-4 rounded-full hover:bg-surface-tint hover:scale-105 transition-all duration-300 shadow-lg" href="https://wa.me/5491112345678?text=Hola!%20Quiero%20hacer%20un%20pedido" target="_blank" rel="noopener">
+<span class="material-symbols-outlined" data-icon="chat" style="font-variation-settings: 'FILL' 1;">chat</span>
+                        Pedí por WhatsApp
+                    </a>
+<a class="flex items-center justify-center gap-2 bg-surface text-primary font-label-bold text-label-bold px-8 py-4 rounded-full border-2 border-transparent hover:border-primary hover:scale-105 transition-all duration-300 shadow-lg" href="#">
+<span class="material-symbols-outlined" data-icon="delivery_dining" style="font-variation-settings: 'FILL' 1;">delivery_dining</span>
+                        Pedí por Rappi
+                    </a>
+</div>
+<div class="mt-lg flex flex-col sm:flex-row items-center justify-center gap-6 text-inverse-on-surface font-caption text-caption bg-inverse-surface/80 backdrop-blur-md px-6 py-4 rounded-2xl border border-outline-variant/20 shadow-xl">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-fixed" data-icon="location_on">location_on</span>
+<span class="">Gral. Lucio N. Mansilla 3494, CABA</span>
+</div>
+<div class="hidden sm:block w-px h-8 bg-outline-variant/30"></div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-fixed" data-icon="schedule">schedule</span>
+<div class="text-left">
+<span class="">Mar-Sáb: 08:00 - 23:30</span><br/>
+<span class="text-surface-dim">Dom: 19:00 - 23:30</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom curved divider -->
+<div class="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-10 pointer-events-none">
+<svg class="relative block w-full h-[60px] fill-background" preserveaspectratio="none" viewbox="0 0 1200 120">
+<path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.3,130.83,120.22,197.9,111.45,241.26,105.81,281.87,83.13,321.39,56.44Z"></path>
+</svg>
+</div>
+</section>
+<!-- 3. NOSOTROS (Asymmetric Layout) -->
+<section class="py-xl px-4 md:px-gutter max-w-container-max mx-auto" id="nosotros">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-16 items-center">
+<!-- Image Collage -->
+<div class="md:col-span-5 lg:col-span-6 grid grid-cols-2 gap-4 items-center reveal">
+<div class="rounded-3xl overflow-hidden shadow-lg border-4 border-surface hover-lift h-full">
+<img loading="lazy" decoding="async" class="w-full h-full object-cover" data-alt="Black and white historical photograph of a traditional Argentine pizzeria from the 1940s. Two men in white aprons are tossing pizza dough in front of a brick oven. The scene is full of character, conveying heritage, hard work, and familial tradition." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCP3Jv2m8BQnrCPSfL6ZBuJeN70FypiBAssT3HiYFG4C9dbt8hHyYg9q7RT5kPK-0AJoWvSWEbh27uYJtDoEUjrjHdmIikeok4oYGi7y0vZtc5HbkAhd_Sod5n-QG36sxTt4Ct-IdE6MQtgVwWTfxHk5xYhnyIc-yez4HrO06LXHh0JclDyD7UkyjGuYNNafAf6jXyZwFUiMqqM6ty2sEZ0AT7AK9i9Lk3JF9APO4BSqA114Qsjn-eBSTaplFZZcYJvfmutS_NaHUpiYFg"/>
+</div>
+<div class="rounded-3xl overflow-hidden shadow-xl border-4 border-surface hover-lift bg-surface h-full">
+<img loading="lazy" decoding="async" class="w-full h-full object-cover" data-alt="Close up of hands covered slightly in flour, expertly shaping a pizza dough on a wooden prep table. In the softly blurred background, a glowing wood-fired oven. The lighting is warm and golden, emphasizing artisanal craft and culinary passion." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAf8H1tKzdpjsm6o6iRZ13xASkZuUSj98eahVTEGdGfyDfKqljMZS97dX9c5I9jzgW0UYcsR2dnfFfunJtsFGn4lsUX2XY69aW2BV13jpkTfO_eXEXtRAmTZLIrCG7wzFXfMu37iQCZnvoGFGYRyfV4Ucecus4WjB4voXkCkGhIQj1g2Nl513a7hlrML7A-BaeBHZU6_nwAl7JGGhYPZObHBfGHTog9CmswQRwbIfYva2lARlIUl-SsUQlvqemwrpFgRH5I1-hXbyGW9C4"/>
+</div>
+<!-- Decorative element -->
+</div>
+<!-- Text Content -->
+<div class="md:col-span-7 lg:col-span-6 flex flex-col items-start reveal">
+<span class="font-label-bold text-label-bold text-tertiary uppercase tracking-widest mb-2">Nuestra Historia</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-6">
+                        Más de 80 años amasando recuerdos en Palermo
+                    </h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4 leading-relaxed">
+                        Fundada en 1940, "Los Muchachos de Punto y Banca" nació con una premisa simple: ofrecer la mejor pizza al molde del barrio. Con una masa que reposa el tiempo justo, una salsa de tomates perita seleccionados y la mozzarella de mayor calidad que logramos fundir a la perfección en nuestro horno histórico.
+                    </p>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8 leading-relaxed">
+                        Hoy, seguimos siendo el punto de encuentro para familias, amigos y parejas que buscan el sabor auténtico de la tradición porteña, ese que te hace sentir en casa desde el primer mordisco.
+                    </p>
+<div class="grid grid-cols-2 gap-6 w-full mb-8">
+<div class="border-l-4 border-primary pl-4">
+<span class="block font-headline-md text-headline-md text-on-surface font-bold">1940</span>
+<span class="font-caption text-caption text-on-surface-variant">Año de fundación</span>
+</div>
+<div class="border-l-4 border-secondary pl-4">
+<span class="block font-headline-md text-headline-md text-on-surface font-bold">+1M</span>
+<span class="font-caption text-caption text-on-surface-variant">Pizzas horneadas</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 4. MENÚ DESTACADO (Bento Grid) -->
+<section class="py-xl px-4 md:px-gutter bg-surface-container-low/50 relative" id="menu">
+<div class="max-w-container-max mx-auto flex flex-col items-center">
+<div class="text-center mb-12">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-2">Nuestro Menú</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl mx-auto">Seleccionamos los mejores ingredientes para mantener vivo el sabor de la verdadera pizza porteña.</p>
+<div class="rustic-divider w-32 mx-auto"></div>
+</div>
+<!-- Speciality Pizza Card (moved from standalone section) -->
+<div class="w-full mb-12">
+<div class="flex flex-col md:flex-row items-center gap-lg bg-surface rounded-3xl p-6 md:p-12 shadow-[0_4px_24px_rgba(62,39,35,0.06)] border border-surface-container-highest reveal">
+<div class="w-full md:w-1/2 relative group overflow-hidden rounded-2xl shadow-md">
+<div class="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 rounded-2xl"></div>
+<img loading="lazy" decoding="async" alt="La Pizza Punto y Banca" class="w-full h-auto object-cover rounded-2xl transform group-hover:scale-105 transition-transform duration-500 ease-out" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAq6ikWbKjamf3wlR9Az2RWM3iYPUctdkURcGBrA7COP99aGEBlZLB08W1pOR3rTEE-bMf6-Plm9gTT4nGKmGmYs4Basr70zle-pZoHWQzGH1euGj5RnQ2qnAld-iD84dotFkJ9lPYn2hi1-uQNVj8yQ3BhUJcOMZGMmVS5v2Jvo2DIcuywpNIqi96M1apMPtMdI_BCoF859nK_QG4DnqZrnSbf0B5ieOSy02yTX9yOn-z8feQw6_IzE9PMkbPp_STS6rjL4cCniZl3eNg"/>
+<div class="absolute top-4 left-4 z-20 bg-secondary-container text-on-secondary-container font-label-bold text-label-bold px-3 py-1 rounded-full shadow-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+                        Especialidad
+                    </div>
+</div>
+<div class="w-full md:w-1/2 flex flex-col items-start gap-4">
+<div class="flex items-center gap-2 text-tertiary">
+<span class="material-symbols-outlined" data-icon="local_pizza">local_pizza</span>
+<span class="font-label-bold text-label-bold uppercase tracking-wider">El Clásico del Barrio</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg md:text-display-lg-mobile text-on-surface">
+                        La Pizza Punto y Banca
+                    </h2>
+<div class="rustic-divider w-24 mx-0 my-2"></div>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+                        Nuestra especialidad rellena, horneada a la perfección. Una abundante capa de huevo duro, jamón seleccionado, mozzarella fundida, morrón asado y aceitunas. La pizza que nos da nombre, orgullo y que convoca familias desde hace décadas.
+                    </p>
+<div class="mt-4 flex items-baseline gap-2">
+<span class="font-headline-md text-headline-md text-primary font-bold">$49.000</span>
+<span class="font-caption text-caption text-outline">/ Grande (8 porciones)</span>
+</div>
+<a class="mt-4 flex items-center gap-2 bg-surface text-primary font-label-bold text-label-bold px-6 py-3 rounded-xl border-2 border-outline-variant hover:border-primary hover:bg-primary/5 transition-all duration-200" href="https://wa.me/5491112345678?text=Hola!%20Quiero%20pedir%20La%20Pizza%20Punto%20y%20Banca%20(%2449.000)" target="_blank" rel="noopener">
+<span class="material-symbols-outlined" data-icon="add_shopping_cart">add_shopping_cart</span>
+                        Pedir por WhatsApp
+                    </a>
+</div>
+</div>
+</div>
+<!-- Pizzas Chicas Full List -->
+<div class="w-full mb-12">
+<div class="flex items-center justify-between mb-8">
+<h3 class="font-headline-lg text-headline-lg text-on-surface">Pizzas Chicas</h3>
+<span class="font-label-bold text-label-bold text-on-surface-variant bg-surface-container-high px-3 py-1 rounded-full">Formato individual<br/></span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 reveal">
+<!-- Item 1 -->
+<div class="bg-surface rounded-xl p-3 border border-surface-container-highest shadow-sm flex items-center gap-3 hover:shadow-md transition-shadow">
+<img loading="lazy" decoding="async" alt="Pizza de muzzarella" class="w-12 h-12 rounded-lg object-cover bg-surface-container-high" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQF13Xqlaz0-ewpHnWhpkTp4iM9jtxuPmVLe-7NEm3PD5aimaN52wO02bWmGQ0QfQxhDLtAeNLfDciW1qQHKTs2Igyukuall1kSqapgHiogvYISb45WCzef3ZLuGIamoWY7LAcvwjp8wGNa9nmV2TmMYiIcuFDia1Nt7OPCHSYYyJkPxP-6TrNAnFOKc7F4vMrZ-tXn3gGnXCL7dBu-Su_zF63UAx9ah5aRpvdh_Y5NnUr1MpzlSUfuEWViUePYCFFvGAqD3Pj5dDk1BA"/>
+<div class="flex-1">
+<h4 class="font-label-bold text-label-bold text-on-surface mb-1">Pizza de muzzarella</h4>
+<p class="font-caption text-caption text-on-surface-variant line-clamp-2 mb-2">Pizza de 6 porciones; salsa de tomate, muzzarella, aceitunas y orégano</p>
+<span class="font-headline-md text-headline-md text-primary text-lg">$ 19.500,00</span>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="bg-surface rounded-xl p-3 border border-surface-container-highest shadow-sm flex items-center gap-3 hover:shadow-md transition-shadow">
+<img loading="lazy" decoding="async" alt="Pizza muzzarella con jamón" class="w-12 h-12 rounded-lg object-cover bg-surface-container-high" src="https://lh3.googleusercontent.com/aida-public/AB6AXuArGfjOjxLCFNMZ0oglydHQmWsLfsRHP0kQP8DLJ_LDIf39zioww-twldxIMOnOXsBWgbIlrT7huM2kAj_Y_M32WNP5IlkHOyI8Ix6JNMmXkJJ1-jyZoB04W2mcmP3rQB0fEbN-zzL-ysw4WOoovMwFKRqgXsPiMXmTcZiqDltxYNeLwA-5PtmaKtfcja-g0tpYtm34IxzzMZid8kL57Dus6flwJa7l-OXEshVpz142FQ5c5UG1fYY-8A"/>
+<div class="flex-1">
+<h4 class="font-label-bold text-label-bold text-on-surface mb-1">Pizza muzzarella con jamón</h4>
+<p class="font-caption text-caption text-on-surface-variant line-clamp-2 mb-2">Pizza de 6 porciones; salsa de tomate, muzzarella, jamón, aceitunas y...</p>
+<span class="font-headline-md text-headline-md text-primary text-lg">$ 23.500,00</span>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="bg-surface rounded-xl p-3 border border-surface-container-highest shadow-sm flex items-center gap-3 hover:shadow-md transition-shadow">
+<img loading="lazy" decoding="async" alt="Pizza napolitana" class="w-12 h-12 rounded-lg object-cover bg-surface-container-high" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcjGtOf2dIRePY-X1wVBihaXJNE4xBx-Aut2eMtbWo1inl8BPd-CHhcBs0OC168N6WXXutVNYCd9EleV2jvCqERPkUb0Dz-k2KJdeNtRxnMeBfBkFTedYpGHu1Vt_0a-9Mt3zi2ix3Bxgq4m4ZQlk7DcML19OF2frlZIy2QLzCHMTVB9FvdDGT4Cxl9vPJmZyffg5uebyXGAflf4EHC77WMExkWcHDOMxFo5kqhxCL29elUAkw96rhWM6QZwjt4Zrw5XcDIEAD3w18KrQ"/>
+<div class="flex-1">
+<h4 class="font-label-bold text-label-bold text-on-surface mb-1">Pizza napolitana</h4>
+<p class="font-caption text-caption text-on-surface-variant line-clamp-2 mb-2">Pizza de 6 porciones; muzzarella, rodajas de tomate, aceitunas, ajo y...</p>
+<span class="font-headline-md text-headline-md text-primary text-lg">$ 23.500,00</span>
+</div>
+</div>
+<!-- Item 4 -->
+<div class="bg-surface rounded-xl p-3 border border-surface-container-highest shadow-sm flex items-center gap-3 hover:shadow-md transition-shadow">
+<img loading="lazy" decoding="async" alt="Pizza napolitana con jamón" class="w-12 h-12 rounded-lg object-cover bg-surface-container-high" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_mi8pURwba9Kmpp7D0s269OhQvyX6KX66Ii9bemFsJmyT02RFXHiNWl5RKtXQNuYH6KsUM_F_DUb2kdy0uUSXwfLa2jYOS_hGyeykgOHHl_uXixJ1EVTbDAQsR_9ipW-gsZEQDdRVkcOY0hWaNvMCWt9f1RD2rux7nGl_meRFx_LNb6Guh99_qsm8dauyACCnpYLuii5ANkR_heRQCoaxMHQwpCvdw4a4BXDFdj7MDlYwDqsXND2WRrXwB9x6WMFWINtf8atyaoE17jw"/>
+<div class="flex-1">
+<h4 class="font-label-bold text-label-bold text-on-surface mb-1">Pizza napolitana con jamón</h4>
+<p class="font-caption text-caption text-on-surface-variant line-clamp-2 mb-2">Pizza de 6 porciones; muzzarella, jamón cocido, rodajas de tomate,...</p>
+<span class="font-headline-md text-headline-md text-primary text-lg">$ 27.500,00</span>
+</div>
+</div>
+<!-- Item 5 -->
+<div class="bg-surface rounded-xl p-3 border border-surface-container-highest shadow-sm flex items-center gap-3 hover:shadow-md transition-shadow">
+<img loading="lazy" decoding="async" alt="Pizza jamón y morrones" class="w-12 h-12 rounded-lg object-cover bg-surface-container-high" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxq5P5cLOjwMeLB3nehB77rGueFG-ZT7ZjsBVk0GxoEBFJ4gRdb1P_9PPbWggagKCPFsqTM5Z1sVsGXdD6dOR-Q3SQ1INh2gg7Gx2nIsdUWmGMUmb2gCyxjpA1sHlpim2m9iJ1B4kkBfRkJJq9vGvpIK-vcXndVpcEN_NgAtR6qnpHuQyIZ1u8PL1lWzKETVMW1XBvzuSVzr7oHYAlWIfFhNMPs6uZz9PKKIpioOoaa_T1iagghv168Yu5IpmiVd8YmGbYT2Zvx_mrOpw"/>
+<div class="flex-1">
+<h4 class="font-label-bold text-label-bold text-on-surface mb-1">Pizza jamón y morrones</h4>
+<p class="font-caption text-caption text-on-surface-variant line-clamp-2 mb-2">Pizza de 6 porciones con salsa de tomate, muzzarella, jamón, morrones ...</p>
+<span class="font-headline-md text-headline-md text-primary text-lg">$ 27.500,00</span>
+</div>
+</div>
+<!-- Item 6 -->
+<div class="bg-surface rounded-xl p-3 border border-surface-container-highest shadow-sm flex items-center gap-3 hover:shadow-md transition-shadow">
+<img loading="lazy" decoding="async" alt="Pizza fugazzeta" class="w-12 h-12 rounded-lg object-cover bg-surface-container-high" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbi3008Hq4AJTj5SAVgAnS2ey4D35jhYes1C1UWDHUGksdUesx-aFlpeLoiWIHuYmgPKW3HhA8fSQ28lrQzTzinlZM0PxQ4OyUN-pYmWA5beoYwXQ_jvdbdig1aXXrapFpUROGwcbe_9UEnSzk7WV1vqc3SN_FVe-M0eZFxcKS4sh7tbULKygnhtibFy8KlYia3xcKw5EtYCbo88fOGmIoRHK5cgjOnQA31y6DC12KZiP6dFK1Vam2aDLtvxGrBINOpymrYOdf0M9i2xc"/>
+<div class="flex-1">
+<h4 class="font-label-bold text-label-bold text-on-surface mb-1">Pizza fugazzeta</h4>
+<p class="font-caption text-caption text-on-surface-variant line-clamp-2 mb-2">Pizza de 6 porciones; aros de cebolla, rellena con muzzarella, orégano y...</p>
+<span class="font-headline-md text-headline-md text-primary text-lg">$ 27.500,00</span>
+</div>
+</div>
+</div>
+<!-- El resto de las pizzas chicas: colapsado en mobile, siempre visible en desktop -->
+<div class="hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4" id="pizzas-chicas-more">
+<!-- Item 7 -->
+<div class="bg-surface rounded-xl p-3 border border-surface-container-highest shadow-sm flex items-center gap-3 hover:shadow-md transition-shadow">
+<img loading="lazy" decoding="async" alt="Pizza fugazzeta con jamón" class="w-12 h-12 rounded-lg object-cover bg-surface-container-high" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEuZdU55dRFV4P4z_Yw2s7O1fSLhRUieHz3LYUZRU_pgcvOHhh4wMr66zM9whfjMmhlTK5434OVlP2QiCWnDmRh5gGMQRtTPU7iVCzlcn0wmuuOG4vUMb_SGHzYwFcEMp22b0vQViNIfSHzrqOKqLrh0nG0hYXuEYhJw0xqeSz2JpFrX1BuLvAC8NSmKv9-ClfujB8S_hULaum0wal3GEIO4hpAcFtoh-W3G5MyVQHyJzGD-7ECv7hkuTIfLCUxyD1byRN6pL7TyVr9QA"/>
+<div class="flex-1">
+<h4 class="font-label-bold text-label-bold text-on-surface mb-1">Pizza fugazzeta con jamón</h4>
+<p class="font-caption text-caption text-on-surface-variant line-clamp-2 mb-2">Pizza fugazzeta con jamón, rellena de muzzarella y jamón, cubierta con aro...</p>
+<span class="font-headline-md text-headline-md text-primary text-lg">$ 32.000,00</span>
+</div>
+</div>
+<!-- Item 8 -->
+<div class="bg-surface rounded-xl p-3 border border-surface-container-highest shadow-sm flex items-center gap-3 hover:shadow-md transition-shadow">
+<img loading="lazy" decoding="async" alt="Pizza de fugazza" class="w-12 h-12 rounded-lg object-cover bg-surface-container-high" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9VPDbJvQ1B3gDZdnjug2qBQ3dwb62FTIBrANWlrbV8K8SQevreSOPQVir7Ll9O57Ctd6srKi7KZ-qRu7j0FI6wFEejAepfgH_88Ftnv8EB2cfSVNymdC1kgWHrj8_2bphPVlyHrkKPjTrY-SKtAhGpJceUPEcwYoEA0B5gx0_FqSsoqdyZWexGNFqH4niEG7FtKcn88D8k7oPuXp5-YyCGFDE0A4KeIFkfSn2BYK6qdZ1-14wk7Cbug"/>
+<div class="flex-1">
+<h4 class="font-label-bold text-label-bold text-on-surface mb-1">Pizza de fugazza</h4>
+<p class="font-caption text-caption text-on-surface-variant line-clamp-2 mb-2">Pizza de 6 porciones con aros de cebolla.</p>
+<span class="font-headline-md text-headline-md text-primary text-lg">$ 17.000,00</span>
+</div>
+</div>
+<!-- Item 9 -->
+<div class="bg-surface rounded-xl p-3 border border-surface-container-highest shadow-sm flex items-center gap-3 hover:shadow-md transition-shadow">
+<img loading="lazy" decoding="async" alt="Pizza de roquefort" class="w-12 h-12 rounded-lg object-cover bg-surface-container-high" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBiXzc1YdUW5gHU234vPbP5DAHt5bAMol2236uvAeAeoTaj5hk7QqxMibFVNdBH04uQ2FyL623x8r-waE1iKXBTL5Vx_vmVxXHG15TNdpM1Z8zduzS6J8jokwgMx7C54CeaOww4wawZKNZT7BCuoAJ6UKJpYRnvAT35sYxCIB1YvM6Ynb6WXIVXRf211GmX_zHCBNSEKZIz6rOKOpBII64zS4ATNMew02XLgJCjvwgrC_XMYEW2hZS0tOXppmro18KHUJvp4xYKHaYUEz4"/>
+<div class="flex-1">
+<h4 class="font-label-bold text-label-bold text-on-surface mb-1">Pizza de roquefort</h4>
+<p class="font-caption text-caption text-on-surface-variant line-clamp-2 mb-2">Pizza con salsa de tomate, muzzarella y roquefort, decorada con una...</p>
+<span class="font-headline-md text-headline-md text-primary text-lg">$ 27.500,00</span>
+</div>
+</div>
+<!-- Item 10 -->
+<div class="bg-surface rounded-xl p-3 border border-surface-container-highest shadow-sm flex items-center gap-3 hover:shadow-md transition-shadow">
+<img loading="lazy" decoding="async" alt="Pizza parmesana" class="w-12 h-12 rounded-lg object-cover bg-surface-container-high" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDz0w3mHalFf46qOtdbcAMTZfukInTO06mENh7P8M4OtuzbpbxtFld6ISQ4ZB73msBMPoqk4eJCbUOVPzA1lqK-d0GPC071D49MsRMggLOersQEE3lrRY9Nq6AhiUz68QglXu-_PGHGNvY71ZwZX8tBOWjWUwUpKi9q1zkt8zeGa2TrvNjMFqgqgY8zm4_w9Ep9XV2N7yEfLIEnYvwXIqPYmorzB_Ho0ETZs_dGHqTCyd61Bz_NAbjr9rUU7LjtjcU5tz2uzBggIBDwXvw"/>
+<div class="flex-1">
+<h4 class="font-label-bold text-label-bold text-on-surface mb-1">Pizza parmesana</h4>
+<p class="font-caption text-caption text-on-surface-variant line-clamp-2 mb-2">Pizza de 6 porciones; salsa de tomate, muzzarella, queso parmesano,...</p>
+<span class="font-headline-md text-headline-md text-primary text-lg">$ 27.500,00</span>
+</div>
+</div>
+<!-- Item 11 -->
+<div class="bg-surface rounded-xl p-3 border border-surface-container-highest shadow-sm flex items-center gap-3 hover:shadow-md transition-shadow">
+<img loading="lazy" decoding="async" alt="Pizza calabresa" class="w-12 h-12 rounded-lg object-cover bg-surface-container-high" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPOnmt01PV3YvuOKGOhPnwpZikBp1plOBgcCW3JyXP4s11Iv_2IHBrdVvgXz1DMYqQ_Lf_v38ElhvMBkSKYTPVs_4OVHKuJhjXBokS1OH4bNKw2hdXDZd0gSolwtRdjr6dKAlDeRhxrQRXKbvEY7b-yO6oPLoulonDT9S0lxJdDdz4gPYEWGQ-iva3l_T-wntB0RramnZmKJBPWnsxB2k1ayiAiKiIf3ZlFFahnb3aT9QrFyl-gaHR0eSP8D6qhi5eQqgy-I_JzY4ZOsc"/>
+<div class="flex-1">
+<h4 class="font-label-bold text-label-bold text-on-surface mb-1">Pizza calabresa</h4>
+<p class="font-caption text-caption text-on-surface-variant line-clamp-2 mb-2">Pizza de 6 porciones; salsa de tomate, muzzarella y rodajas de longaniza,...</p>
+<span class="font-headline-md text-headline-md text-primary text-lg">$ 27.500,00</span>
+</div>
+</div>
+<!-- Item 12 -->
+<div class="bg-surface rounded-xl p-3 border border-surface-container-highest shadow-sm flex items-center gap-3 hover:shadow-md transition-shadow">
+<img loading="lazy" decoding="async" alt="Pizza portuguesa" class="w-12 h-12 rounded-lg object-cover bg-surface-container-high" src="https://lh3.googleusercontent.com/aida-public/AB6AXuATq0aJQIcQ3ePRojNtTdgxDR60I2KPOb0fvK85efZGe0FuV1T8CBhCL_AXKbkXlD89vJceZphUp5VtYZlgnhBiPBQUxLz2PD004VnGMY0K0ZhbrvXCedYc4Pm-e-0tDeWtfj3dzGgovecokSzb0L5jBZ3kqAEp2rNac1XDn0bxePluEk6SrHFhSSYpoT3SnG8JZfPqAbpWKIfiDtyMbE3kVa8n_KEDOfW1XNYTwlZj3ls4Jo6D26tA3nszBT65SuW1JyOhg0-z5xRpuJg"/>
+<div class="flex-1">
+<h4 class="font-label-bold text-label-bold text-on-surface mb-1">Pizza portuguesa</h4>
+<p class="font-caption text-caption text-on-surface-variant line-clamp-2 mb-2">Pizza portuguesa de 6 porciones con salsa de tomate picante, aros de...</p>
+<span class="font-headline-md text-headline-md text-primary text-lg">$ 17.500,00</span>
+</div>
+</div>
+<!-- Item 13 -->
+<div class="bg-surface rounded-xl p-3 border border-surface-container-highest shadow-sm flex items-center gap-3 hover:shadow-md transition-shadow">
+<img loading="lazy" decoding="async" alt="Pizza anchoas" class="w-12 h-12 rounded-lg object-cover bg-surface-container-high" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6fn92SQ7Dui6W3HpKsDY27oMvavmkShuyaHs6ArbefhZbH6_FlgQnrV8XZWF-8XnqRL6YldcTMBweJSAwm-mtxEqka1Ed-ugScOupjU4ZNh0lYS7nhk3lT-xsuTZcMfZkHDpGqdVfIwWjyWcw5E6e6wtlQas-VKA5QJiIJq9rt5I9ycGzOnbS1KtMqubpYXiBxBHKUQG30c2KalYyherRijXAMHrk4WFIDNjspIjqEqQ11lMGN68ZRPN3zG9JqpEYiW_LCKoIh-7g7Yo"/>
+<div class="flex-1">
+<h4 class="font-label-bold text-label-bold text-on-surface mb-1">Pizza anchoas</h4>
+<p class="font-caption text-caption text-on-surface-variant line-clamp-2 mb-2">Pizza de 6 porciones; salsa de tomate, anchoas, orégano y aceitunas</p>
+<span class="font-headline-md text-headline-md text-primary text-lg">$ 19.500,00</span>
+</div>
+</div>
+<!-- Item 14 -->
+<div class="bg-surface rounded-xl p-3 border border-surface-container-highest shadow-sm flex items-center gap-3 hover:shadow-md transition-shadow">
+<img loading="lazy" decoding="async" alt="Pizza palmitos" class="w-12 h-12 rounded-lg object-cover bg-surface-container-high" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDb5JGPVdGJzKykJ3FknmTezS338CDNC9z7QHY9JarNE2DxX0lG5X3A5vIc6gY_sv67Gs-H-q5-60rnpO24y3bJtkK-IRdUmRw1QFECxwRPUVAVXFUgdJfNfMqEKgqCePi02D3QUyeibHlPRzA5HbK-w3h7SMXl4ghdJw5XGp0pS93lfQQQycQlp898DEqX1-ZW1KO7yI4uOAJh0ux5aMbs-A1_nH4Ka5ChD612YBnUTd2-h9RJXjb82K45EqIWtGTiV1Wrg8YEglad7Tk"/>
+<div class="flex-1">
+<h4 class="font-label-bold text-label-bold text-on-surface mb-1">Pizza palmitos</h4>
+<p class="font-caption text-caption text-on-surface-variant line-clamp-2 mb-2">Pizza de 6 porciones con salsa de tomate, muzzarella, jamón, morrones,...</p>
+<span class="font-headline-md text-headline-md text-primary text-lg">$ 32.000,00</span>
+</div>
+</div>
+<!-- Item 15 -->
+<div class="bg-surface rounded-xl p-3 border border-surface-container-highest shadow-sm flex items-center gap-3 hover:shadow-md transition-shadow">
+<img loading="lazy" decoding="async" alt="Pizza champignon" class="w-12 h-12 rounded-lg object-cover bg-surface-container-high" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0fMYMqfFJzm68f9CRPbPutRscJ99dwdUbLY4B7dVzlpKg73Ap0Rw1C3WotNqrwQpqypedBotO6WFndBi-teUqWM8Z_qiUrIne3oHNClB7qYBDvKufi2ZBEEgn4NKZriMTlcPKueNZZfc9esVURxVXKMUYM9THV-UZIxFomrXsaXTUpKbx04vuBqdpprafEXt1XEwaLmPiv634b9b_qiGJlA4oQC8pbY8IfdrUty5pes-3QKVyEDOJFFP75y5sXYIIsyEyCpi5hSIc7Qg"/>
+<div class="flex-1">
+<h4 class="font-label-bold text-label-bold text-on-surface mb-1">Pizza champignon</h4>
+<p class="font-caption text-caption text-on-surface-variant line-clamp-2 mb-2">Pizza de 6 porciones con salsa de tomate, muzzarella, champignon,...</p>
+<span class="font-headline-md text-headline-md text-primary text-lg">$ 27.500,00</span>
+</div>
+</div>
+<!-- Item 16 -->
+<div class="bg-surface rounded-xl p-3 border border-surface-container-highest shadow-sm flex items-center gap-3 hover:shadow-md transition-shadow">
+<img loading="lazy" decoding="async" alt="Pizza espinaca" class="w-12 h-12 rounded-lg object-cover bg-surface-container-high" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWziVrtHOhfQL04l10etqAHyky2RCXJNqlX5hrF36j9suYxjNJGo_KVyHsl_dyUE7KOPUI6kXyAHxwEf3nTFHaxEut4YW9OZ3Y_Gjxo9hv9MPiUIQqV6qOlcfbjShSja2fuWrr726KLj1qzgrGZPyRqN6D6R0JUTQh1V3Ni8bUMvzPAqe_IeeZp0hS54TlDA3Lw95SY1Z-O9W-NUK6zgxLoLqG9-2aPwuK_AqVhnv-nLa5jq3hSwJGlovUGZlSTwD7aIhmsr8vEd6679w"/>
+<div class="flex-1">
+<h4 class="font-label-bold text-label-bold text-on-surface mb-1">Pizza espinaca</h4>
+<p class="font-caption text-caption text-on-surface-variant line-clamp-2 mb-2">Pizza de 6 porciones; salsa blanca, espinaca, provolone, orégano y...</p>
+<span class="font-headline-md text-headline-md text-primary text-lg">$ 27.500,00</span>
+</div>
+</div>
+<!-- Item 17 -->
+<div class="bg-surface rounded-xl p-3 border border-surface-container-highest shadow-sm flex items-center gap-3 hover:shadow-md transition-shadow">
+<img loading="lazy" decoding="async" alt="Pizza hawaiana" class="w-12 h-12 rounded-lg object-cover bg-surface-container-high" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqAOvKHuwynDlud3GB4aZb6oovf8_LPliyX5nKnQUYMhbNonIPK6PlHv0jJdWJVtVVdmy8kfGHp5_M91REIZcF58rQnvxAx4n3gok52MCPlYZY4wcrPjbmiKguoCrZNuzaIi-MiPJqZuqlRtM74Yq3G2BxnIjgZ_gg4XxLlj7pVlMqS3dBnQ7PeZt_vUJknPzF2CsBVrNYnzDKtmsh1LltrjQGDNBNNWA6KnHCqFE97T1wWBB_z3m_1S_dfrlRRRHR-LYBHXP8WYc2Blw"/>
+<div class="flex-1">
+<h4 class="font-label-bold text-label-bold text-on-surface mb-1">Pizza hawaiana</h4>
+<p class="font-caption text-caption text-on-surface-variant line-clamp-2 mb-2">Pizza de 6 porciones; salsa de tomate, muzzarella, jamón, ananá, orégano y...</p>
+<span class="font-headline-md text-headline-md text-primary text-lg">$ 27.500,00</span>
+</div>
+</div>
+<!-- Item 18 -->
+<div class="bg-surface rounded-xl p-3 border border-surface-container-highest shadow-sm flex items-center gap-3 hover:shadow-md transition-shadow">
+<img loading="lazy" decoding="async" alt="Pizza provolone" class="w-12 h-12 rounded-lg object-cover bg-surface-container-high" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrbPh65mzddsJIMy5lPuCalkoUeQriGa-Tw9G-6z-A2W-ZWXNCc200-Z2YDXhlt2gF9PNo2vCrrqor5RgmxNt9icWNrVruOHrNZjrKhHaDYyxnBRz4iOFzI4g--b5TqlAZGRKzK5nYtCDDk7yKLR9MerqKfl4BzO8rh0SS3Ojg_oi_WGmDL__RbJgTbYrWPjUCf_XCaO0EsRldOUcjYwMZkQv2W4Fxeis2kI5kInLCHDsSFU3B5hQXHxsf-hpwd5CC8PwaxBsrYKkuHA0"/>
+<div class="flex-1">
+<h4 class="font-label-bold text-label-bold text-on-surface mb-1">Pizza provolone</h4>
+<p class="font-caption text-caption text-on-surface-variant line-clamp-2 mb-2">Pizza de 6 porciones; salsa de tomate, muzzarella, provolone, aceitunas y...</p>
+<span class="font-headline-md text-headline-md text-primary text-lg">$ 27.500,00</span>
+</div>
+</div>
+<!-- Item 20 -->
+<div class="bg-surface rounded-xl p-3 border border-surface-container-highest shadow-sm flex items-center gap-3 hover:shadow-md transition-shadow">
+<img loading="lazy" decoding="async" alt="Pizza doble muzzarella" class="w-12 h-12 rounded-lg object-cover bg-surface-container-high" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDh-AC5SIGkOs3ux3VesELu26RNDADMlFtjwfUowuQVCFIxGQ6OD2IXaLNnLsI1su5Edr-K2SsmX787ov3AxW6rLTMOjVXWFZ7Ym01BNtEztG-aqwLaYGl6UgB4z764qm1ryiCggOXdh6RGZyBvDDsBj3pRHZpx_BvmYDtJ_zWgZq4QRjH2eghsXcUbwUe7GkvmnNd79TxIAOfBH-MabtRJQvIle1XLgjz_0p1S0tmMQ-SbvD4s45HdU1htv3ORnRcTPkwr-QRdAbQJY18"/>
+<div class="flex-1">
+<h4 class="font-label-bold text-label-bold text-on-surface mb-1">Pizza doble muzzarella</h4>
+<p class="font-caption text-caption text-on-surface-variant line-clamp-2 mb-2">Pizza de 6 porciones con salsa de tomate, doble muzzarella y aceituna.</p>
+<span class="font-headline-md text-headline-md text-primary text-lg">$ 23.500,00</span>
+</div>
+</div>
+<!-- Item 21 -->
+<div class="bg-surface rounded-xl p-3 border border-surface-container-highest shadow-sm flex items-center gap-3 hover:shadow-md transition-shadow">
+<img loading="lazy" decoding="async" alt="Pizza primavera" class="w-12 h-12 rounded-lg object-cover bg-surface-container-high" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEXLAi_MBblNpA4XhGLrPFEW4_JvRqUarHOPHXlqkFc-y04l-4k0IURb70NTRkP_h_eq7umiq_53oj63fQONWl4MEqmZPd1nH2vmpeNecOUAB3XT1l6YDQthjFkXtHYG0MiBZFGFn3pfJ-m7oOd-Jbt-syIAGYuKaIeOac4-UYCgLv7hEIGNQC58HQYu_g4JFaAzVB_-e0IqpoSWEpl2om1t5ysG4aGLQz6-7fiPZQnDre2l8IBBdD23puVO0inm9JmTQH6ZlGVe5MUWc"/>
+<div class="flex-1">
+<h4 class="font-label-bold text-label-bold text-on-surface mb-1">Pizza primavera</h4>
+<p class="font-caption text-caption text-on-surface-variant line-clamp-2 mb-2">Pizza de 6 porciones; salsa de tomate, jamon, rodajas de tomate, huevo dur...</p>
+<span class="font-headline-md text-headline-md text-primary text-lg">$ 32.000,00</span>
+</div>
+</div>
+<!-- Item 22 -->
+<div class="bg-surface rounded-xl p-3 border border-surface-container-highest shadow-sm flex items-center gap-3 hover:shadow-md transition-shadow">
+<img loading="lazy" decoding="async" alt="Pizza americana" class="w-12 h-12 rounded-lg object-cover bg-surface-container-high" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-SEnprcONK_Bzbk3HPCS1mu8Z3HThYBEKuwzKOihiPZgLnC_SpOROU47QGEAYZ8-IkD-e2UN6pDKIvH0wn0Wq_E30Xq50bc4zG-PGyHBKYuabhMDF9p21k_CpcluREgD7EQNUBlhwGjq66ohDBvTq_XK39YL9exjEPK4A60wKnNG6x1Ormch7d7xewckPnSSGJhAAkpAcUi952gMu4RFr4Q-maGY6Bn5PYvxFUSXUCpxU4pQD0_0PHg"/>
+<div class="flex-1">
+<h4 class="font-label-bold text-label-bold text-on-surface mb-1">Pizza americana</h4>
+<p class="font-caption text-caption text-on-surface-variant line-clamp-2 mb-2">Pizza americana de 6 porciones con cebolla, muzzarella, aceitunas y...</p>
+<span class="font-headline-md text-headline-md text-primary text-lg">$ 23.500,00</span>
+</div>
+</div>
+<!-- Item 23 -->
+<div class="bg-surface rounded-xl p-3 border border-surface-container-highest shadow-sm flex items-center gap-3 hover:shadow-md transition-shadow">
+<img loading="lazy" decoding="async" alt="Pizza cancha" class="w-12 h-12 rounded-lg object-cover bg-surface-container-high" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMxmRtWWDAN7oSSg5zLkRna0ze8kMjfRCzjVevqjV_BpeqVak1ll1HoKeva3obfysf2yTaR5kAnVW4M3k4eWGpb3sf6JZmOuSW19vwGuZqMI_E9ayS6O0QxvKSHLBP36PewDusaQIMzuoYGfF8Nom5xzaS7-RBLdAUzETNJ5ucSJgesrfnzQCrXcmYkwsR_d6tsJRSJaRSXcr0OGloebmzf_8fcYo-bqcmjfszQ08989LgzWYXRklN-LRV2btqgu8fmhEFOyAD71cn-SA"/>
+<div class="flex-1">
+<h4 class="font-label-bold text-label-bold text-on-surface mb-1">Pizza cancha</h4>
+<p class="font-caption text-caption text-on-surface-variant line-clamp-2 mb-2">Pizza chica de 6 porciones; salsa de tomate, orégano y aceitunas</p>
+<span class="font-headline-md text-headline-md text-primary text-lg">$ 17.000,00</span>
+</div>
+</div>
+</div>
+<!-- Botón "Ver más" — solo en mobile, en desktop ya se ven todas -->
+<div class="md:hidden mt-4 flex justify-center">
+<button class="flex items-center gap-2 text-primary font-label-bold text-label-bold px-6 py-2 rounded-full border-2 border-primary hover:bg-primary hover:text-on-primary transition-all duration-200" id="pizzas-chicas-toggle" onclick="togglePizzasChicas()">
+<span id="pizzas-chicas-toggle-text">Ver 17 pizzas más</span>
+<span class="material-symbols-outlined" id="pizzas-chicas-toggle-icon">expand_more</span>
+</button>
+</div>
+</div>
+<!-- Bento Grid Layout for other items-->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full lg:grid-cols-3">
+<!-- Tarjeta: Pizzas Grandes -->
+<div class="col-span-1 md:col-span-2 w-full mb-12 reveal"><div class="flex items-center justify-between mb-8"><h3 class="font-headline-lg text-headline-lg text-on-surface">Empanadas</h3><span class="font-label-bold text-label-bold text-on-surface-variant bg-surface-container-high px-3 py-1 rounded-full">Tradición Regional</span></div><div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:grid-cols-3"><!-- Empanadas Jujeñas Card -->
+<div class="group relative bg-surface rounded-3xl overflow-hidden border border-surface-container-highest shadow-sm hover:shadow-xl transition-all duration-500"><div class="relative h-64 overflow-hidden"><img loading="lazy" decoding="async" alt="Empanadas Fritas" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYBm5Jukfi_zcduFBa-5fJXH3c8-6wON48SCNOE7BSRvVdcLLka475RK2w2xRvQfrLaikwHzXMdAdH0LKNrIs_rcGUSmt4Vql0SGRbNuh_RsOqGs6Hvg4oMQv9La4jRWYiLU259nVmRiu-m2nOYLKW6x8Cka9yVCHHVrX6PwoNLjxFGo-K4o691DmLFwMovIuB3Ij8qQ4n0e58Y9kIWDGa13ODDrAlkK0rRPyG8azyKn4t0dHt8Fx-2KK_1Qm99GJ0dikMAroLXSUPHRk"/><div class="absolute top-4 left-4 bg-primary text-on-primary px-4 py-2 rounded-xl shadow-lg backdrop-blur-sm"><div class="font-headline-md text-headline-md">$3.900 <span class="text-caption font-normal opacity-90">c/u</span></div><div class="text-[10px] font-label-bold uppercase tracking-tighter border-t border-white/20 mt-1 pt-1">$43.000 la docena</div></div><div class="absolute top-4 right-4 bg-secondary-container text-on-secondary-container text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest shadow-sm">Destacado</div><div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60"></div><div class="absolute bottom-4 left-6"><h4 class="font-headline-lg text-headline-lg text-white">Empanadas Jujeñas</h4></div></div><div class="p-6"><p class="font-body-md text-on-surface-variant leading-relaxed">Carne cortada a cuchillo, picante suave. Receta tradicional frita, crocante y jugosa.</p></div></div><div class="group relative bg-surface rounded-3xl overflow-hidden border border-surface-container-highest shadow-sm hover:shadow-xl transition-all duration-500"><div class="relative h-64 overflow-hidden"><img loading="lazy" decoding="async" alt="Empanadas al Horno" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBptPcE3lKggugfTD0AcUSDr931RHf5wOw8lJcuMwnrXZW0zndEjTyEntmXCqd27E4MZ_nV2z928haaiAWAkwr3ncpbBLPIuPCsU8wSgP8hmnzeBU58_1pNerNn9K_sJq8WPuCFrK8blsVyqr5qMPQJEXM7G98NxhKlwZu_q8q6fujDYghHbD5l10aMYv4Rn96WmvbhiE9aNrFIfDHSwBBKoa_YIX7LyVXfOiKScgDaMHVuLNBXwKwH-pYE7Qp5fepzwSU"/><div class="absolute top-4 left-4 font-headline-md text-white drop-shadow-md">Empanadas al Horno</div><div class="absolute bottom-4 left-4 flex flex-col"><span class="text-secondary-container font-bold text-xl">$3.500 c/u</span><span class="text-white text-xs">$38.500 la docena</span></div><div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-40"></div></div><div class="p-6"><h4 class="font-label-bold text-label-bold text-on-surface mb-2">Empanadas al Horno</h4><p class="font-body-md text-on-surface-variant leading-relaxed">Nuestras clásicas empanadas horneadas a leña. Masa casera y rellenos tradicionales.</p></div></div>
+<!-- Variedades Clásicas Card -->
+<div class="group relative bg-surface rounded-3xl overflow-hidden border border-surface-container-highest shadow-sm hover:shadow-xl transition-all duration-500">
+<div class="relative h-64 overflow-hidden">
+<img loading="lazy" decoding="async" alt="Variedades Clásicas" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuClrXVgNfhpUugUFimWAKupCxoeFd_vhn_sUetAFmKc6bjyQ7it66pDRpCmV5vooatYV094NHhDIGhDNrDQTtmwvgvc1aw3RqZ8dlXf8GuicniTNzANKyeOH8Fm_nSYYR592kbR9Boowtxq7AoekFuFd1wMPXge50o0we_TOVIoxFWXB-NfldUqSryUICN-ppSOtcFhK_LUM_5vxByvOB963zgJNjxk9K7QiCLp6_1OxDZ2sgKktoB4xurdpMPH7q5zzNU"/>
+<!-- Price Bottom Left (Yellow Style) -->
+<div class="absolute bottom-4 left-6 z-20">
+<div class="text-secondary-fixed font-headline-md text-headline-md drop-shadow-md">$3.500 c/u</div>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+<div class="absolute top-6 left-6">
+<h4 class="font-headline-lg text-headline-lg text-white">Variedades Clásicas</h4>
+<p class="text-white/80 font-label-bold text-label-bold mt-1">$38.500 la docena</p>
+</div>
+</div>
+<div class="p-6">
+<p class="font-caption text-caption text-on-surface-variant uppercase tracking-wider mb-2">Sabores disponibles:</p>
+<p class="font-body-md text-on-surface-variant">Carne, Pollo, Jamón y Queso, Humita, Caprese, Verdura, Roquefort, Queso y Cebolla.</p>
+</div>
+</div></div></div>
+<!-- Tarjeta: Empanadas -->
+</div>
+<div class="mt-12">
+<a class="inline-flex items-center justify-center gap-2 bg-transparent text-primary font-label-bold text-label-bold px-8 py-3 rounded-full border-2 border-primary hover:bg-primary hover:text-on-primary transition-all duration-300" href="#">
+                        Ver menú completo
+                        <span class="material-symbols-outlined" data-icon="restaurant_menu">restaurant_menu</span>
+</a>
+</div>
+</div>
+</section><section class="py-xl px-4 md:px-gutter" id="milanesas"><div class="max-w-container-max mx-auto"><div class="text-center mb-12"><h2 class="font-headline-lg text-headline-lg text-on-surface mb-2">Milanesas y Sándwiches</h2><p class="font-body-md text-body-md text-on-surface-variant max-w-2xl mx-auto">Nuestras famosas milanesas, tiernas y abundantes, servidas como en los mejores bodegones.</p><div class="rustic-divider w-32 mx-auto"></div></div><div class="grid grid-cols-1 lg:grid-cols-2 gap-12"><!-- Category 1: Sándwiches Completos --><div class="flex flex-col gap-8"><div class="flex items-center justify-between border-b border-outline-variant/30 pb-4"><h3 class="font-headline-md text-headline-md text-on-surface">Sándwiches Completos</h3><span class="font-label-bold text-label-bold text-on-surface-variant bg-surface-container-high px-3 py-1 rounded-full">Con Guarnición</span></div><div class="grid grid-cols-1 gap-6"><!-- Item 1 --><div class="group bg-surface rounded-3xl overflow-hidden border border-surface-container-highest shadow-sm hover:shadow-md transition-all flex flex-col sm:flex-row"><div class="w-full sm:w-48 h-48 overflow-hidden"><img loading="lazy" decoding="async" alt="Sándwich de Milanesa Completo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2BqOXte965JOWsu5Bpmdn-xQOJPaCcb9odDBApDpbKXnPnANgCAHGMr6w0SlRIksJtDxOI6J17Ubr2m_OBdwvrtLqLpe7uxMCFB2w_N55EzxUxzKwa8zrryLO_4sgBQ8Mgsl6RFl9XPrvI_GIh4XImfWYTJsWao0ReeHuMQYltMm2szvV0HlcOEPDIWwcRNs9nYWA-xx0n_db9qrrrGCZj-Yi-_jbmAzS4FmbJBwJdd4CvHolAaeOuqXalcCl4mXp3v8"/></div><div class="p-6 flex-1 flex flex-col justify-center"><h4 class="font-headline-md text-headline-md text-on-surface mb-2">Sándwich de Milanesa Completo</h4><p class="font-body-md text-on-surface-variant mb-4">Lechuga, tomate, huevo frito y jamón. Incluye papas fritas.</p><div class="mt-auto flex items-center justify-between"><span class="font-headline-md text-primary font-bold">$21.500</span><button aria-label="Pedir Sándwich de Milanesa Completo" class="text-primary material-symbols-outlined hover:scale-110 transition-transform" onclick="orderWhatsApp('Sándwich de Milanesa Completo', '$21.500')">add_circle</button></div></div></div><!-- Item 2 --><div class="group bg-surface rounded-3xl overflow-hidden border border-surface-container-highest shadow-sm hover:shadow-md transition-all flex flex-col sm:flex-row"><div class="w-full sm:w-48 h-48 overflow-hidden"><img loading="lazy" decoding="async" alt="Milanesa Napolitana con Jamón" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjIRF_0bpieIIJyZeU_-kRjLGAUVqqPM-FxN0U3d1cHStCpqqzm5zQW1cJdYYDVvfqj-pDpZXDRR8L3PlE2YRmviQ6u9vSVU4vUPRswqxV9sXPT2TqWYE1j3eDttv3sXu35_a_VAtw-Ae73ifV5vY3PJ5gjYUcQf3BCm8m-oDwyqx2-kUm_DoLPu--F1YaJwaBuLIcBfmVpCF3P25FsYM0N_b8ojMPPHS6fmDYZL65UEXTHq4XI4iX0TWXTil51FrXE0o"/></div><div class="p-6 flex-1 flex flex-col justify-center"><h4 class="font-headline-md text-headline-md text-on-surface mb-2">Milanesa Napolitana con Jamón</h4><p class="font-body-md text-on-surface-variant mb-4">Salsa de tomate, jamón y muzzarella gratinada. Incluye papas fritas.</p><div class="mt-auto flex items-center justify-between"><span class="font-headline-md text-primary font-bold">$21.500</span><button aria-label="Pedir Milanesa Napolitana con Jamón" class="text-primary material-symbols-outlined hover:scale-110 transition-transform" onclick="orderWhatsApp('Milanesa Napolitana con Jamón', '$21.500')">add_circle</button></div></div></div></div></div><!-- Category 2: Milanesas Individuales --><div class="flex flex-col gap-8"><div class="flex items-center justify-between border-b border-outline-variant/30 pb-4"><h3 class="font-headline-md text-headline-md text-on-surface">Milanesas Individuales</h3><span class="font-label-bold text-label-bold text-on-surface-variant bg-surface-container-high px-3 py-1 rounded-full">Clásicos</span></div><div class="grid grid-cols-1 gap-6"><!-- Item 3 --><div class="group bg-surface rounded-3xl overflow-hidden border border-surface-container-highest shadow-sm hover:shadow-md transition-all flex flex-col sm:flex-row"><div class="w-full sm:w-48 h-48 overflow-hidden"><img loading="lazy" decoding="async" alt="Milanesa con Papas Fritas" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgAP7xS-3-wTGISfbq13SHJ5v7Eb6PTVskNUENH9qHYRe1IMOa2KhQgUgROq2WcJn5WzXeEtCZ-_Qb0qP1idSVRSp0uy8lHPLhlfF6hzxEw1CxBXJM-4-_JOaJ4duevUI-QyNyIVFcxFDca8gq7cafBMGSw7Brqr58bleZQHeuzZafOXiAGs4Wwk2BEgxMz-lx1VIn4dR1ZeTcxKXdLav4Rrw2How-j0oprMMVrdSy0OnAzgVIoRMtuHhzYDZFXtyo5jg"/></div><div class="p-6 flex-1 flex flex-col justify-center"><h4 class="font-headline-md text-headline-md text-on-surface mb-2">Milanesa con Papas Fritas</h4><p class="font-body-md text-on-surface-variant mb-4">Nuestra clásica milanesa de carne al plato con papas fritas doradas.</p><div class="mt-auto flex items-center justify-between"><span class="font-headline-md text-primary font-bold">$17.000</span><button aria-label="Pedir Milanesa con Papas Fritas" class="text-primary material-symbols-outlined hover:scale-110 transition-transform" onclick="orderWhatsApp('Milanesa con Papas Fritas', '$17.000')">add_circle</button></div></div></div><!-- Item 4 --><div class="group bg-surface rounded-3xl overflow-hidden border border-surface-container-highest shadow-sm hover:shadow-md transition-all flex flex-col sm:flex-row"><div class="w-full sm:w-48 h-48 overflow-hidden"><img loading="lazy" decoding="async" alt="Sándwich de Milanesa Solo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjbZzs_-NFeo_iZ6A7ATDNOAw3ztCGaeYn4i7NG7CrzUwFShY5b-tBc2vrfovuKv-WXARLLodNx9b61qbFh8eu7FcdhcWpyr7x4CSwFiZW97ZmSf0PTKzEwUXL7I6pbYotLt87k7aM2Kz_Bl42B1Ji5BGCIL4_STZ2jqZNK29NYINVECRN-mO0arn2IBWNRl3dYJxoD8TClV8Iz33zbaptCCbYk1AUtIv2DsjaQxV-uhuFtsxeL23gLHTeRQdITVaPJ1LrbWTf3AEV6P4"/></div><div class="p-6 flex-1 flex flex-col justify-center"><h4 class="font-headline-md text-headline-md text-on-surface mb-2">Sándwich de Milanesa Solo</h4><p class="font-body-md text-on-surface-variant mb-4">Milanesa en pan francés crocante. Sin guarnición.</p><div class="mt-auto flex items-center justify-between"><span class="font-headline-md text-primary font-bold">$17.000</span><button aria-label="Pedir Sándwich de Milanesa Solo" class="text-primary material-symbols-outlined hover:scale-110 transition-transform" onclick="orderWhatsApp('Sándwich de Milanesa Solo', '$17.000')">add_circle</button></div></div></div></div></div></div></div></section>
+<!-- 5. CAFE Y SOBREMESA (New Section) -->
+<section class="py-xl px-4 md:px-gutter max-w-container-max mx-auto" id="cafe"><div class="text-center mb-12"><h2 class="font-headline-lg text-headline-lg text-on-surface mb-2">Café y Sobremesa</h2><p class="font-body-md text-body-md text-on-surface-variant max-w-2xl mx-auto">Para terminar la comida como corresponde. El clásico momento porteño.</p><div class="rustic-divider w-32 mx-auto"></div></div><div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12"><div class="bg-surface-container-low rounded-3xl p-8 border border-surface-container-highest flex flex-col shadow-sm reveal"><div class="flex items-center gap-4 mb-6"><div class="w-24 h-24 rounded-2xl overflow-hidden border-2 border-outline-variant/30 shadow-sm"><img loading="lazy" decoding="async" alt="Cafetería" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSCkrFgq4djKrhKjOaxhFqFPZUq7SSoxveNN8ji0HRc49YjUbFUuVYsCztlKFF9Fg3rkkOKp7322qMDsJLv5hmOXcz873gNc82aVGnP6byXi4rJ3SPfaJ_T-fYZ9Y98WxE5zctiCdmdHLzJ0GbMVEtt5a5WwG89XlUJ7oWzf2B-htaDFCGLnXIqVnhBwGafiboUsdhVB4CjDZ3Pst1v3cnsCFdu2YN4YfgKi-yCIYgJpKPRzVGWAwlDkSQrycIyy7WX10"/></div><div><h3 class="font-headline-md text-headline-md text-on-surface">Cafetería</h3><p class="font-body-md text-body-md text-on-surface-variant">El aroma de la charla</p></div></div><ul class="flex flex-col gap-4"><li class="flex justify-between items-center border-b border-outline-variant/30 pb-4"><div><h4 class="font-label-bold text-label-bold text-on-surface">Café Lagrima</h4></div><div><br/></div><span class="font-headline-md text-headline-md text-primary">$2.500</span></li><li class="flex justify-between items-center border-b border-outline-variant/30 pb-4"><div><h4 class="font-label-bold text-label-bold text-on-surface">Cortado / Macchiato</h4></div><span class="font-headline-md text-headline-md text-primary">$2.800</span></li><li class="flex justify-between items-center pb-2"><div><h4 class="font-label-bold text-label-bold text-on-surface">Té Inti Zen</h4><p class="font-caption text-caption text-on-surface-variant">Variedades</p></div><span class="font-headline-md text-headline-md text-primary">$2.400</span></li></ul><div class="flex items-center gap-4 mt-8 mb-6"><div class="bg-secondary-container text-on-secondary-container p-4 rounded-2xl flex items-center justify-center w-24 h-24"><span class="material-symbols-outlined text-[32px]">cake</span></div><div><h3 class="font-headline-md text-headline-md text-on-surface">Postres Clásicos</h3></div></div><ul class="flex flex-col gap-4"><li class="flex justify-between items-center border-b border-outline-variant/30 pb-4"><div><img loading="lazy" decoding="async" alt="Chocotorta" class="w-16 h-16 rounded-lg object-cover mb-2 border border-outline-variant/20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVHrb9iI6gHAikh9b9PxUNgNjMPmy56G1oG3KiAzrjXOccGvdQM2EQ_xQytKFD3F8zJh3TURzp6J-jFCNk900Xjan2sDgY45skYTTH92VuyIGWnIUqHV39BbAFE8p0EGJM3-Uf0VJkyx8cET_CVPaUEOyK9JuGcRCDH07AwkA9foriO_zJ-48WGZROeCbsfmmnK25LmcgAjK-hhYngMWo6Vx32X8ZXXEVQmLSTF3NACyMFGMXg-kXDwVKnm0o8RBpaFTE"/><h4 class="font-label-bold text-label-bold text-on-surface">Chocotorta</h4></div><span class="font-headline-md text-headline-md text-primary">$5.000</span></li><li class="flex justify-between items-center border-b border-outline-variant/30 pb-4"><div><img loading="lazy" decoding="async" alt="Tiramisú" class="w-16 h-16 rounded-lg object-cover mb-2 border border-outline-variant/20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCd9GKg2fVM3eti_YiSxxVbsR063TdgW7difDOpq-Tx06mstvl-PAil416Q-TY1-y3KGwDXV_SPwmJOBf58hfDGSWUyBEFnILCarYJfV5oq5mmFWZjJB4ROyjNPRLE4SLuiEXqoYOvHFBtP_A9KvXXTv8k94JrNLtgUXydlGaQexBYq3Q7MI5MIkRSeBJMZF_H5fUQrHo7Ucyz14YdOtbvN629lyZvW42k4QGWVkabk7g8eh_iiM0Jnbm_71-jnrrKW2lo"/><h4 class="font-label-bold text-label-bold text-on-surface">Tiramisú</h4></div><span class="font-headline-md text-headline-md text-primary">$5.000</span></li><li class="flex justify-between items-center pb-2"><div><img loading="lazy" decoding="async" alt="Cheesecake" class="w-16 h-16 rounded-lg object-cover mb-2 border border-outline-variant/20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCh9feT2zOjATNIFyym8HNt8m2MZsFPA4_n5WVD-RTLbZXRvnMfbSat0OlBTrSxHnmEdVxzpg49EHV2QOb0q-gLdkD-rXizIs9aV3Eyq2Yx3d4TAJVrIqpZ6oXtlndqA16_EOg2DRiSC6hqTs5wedgAEpNRdzN045r3WBnblC-VjfEhKhxVoauYlkoAdneUZwu2kad77magramEe3c6Fhkih7b-cFp-xCuXgoerpoCoEcund-xXWJwhOvABM-cqD2H7ZDc"/><h4 class="font-label-bold text-label-bold text-on-surface">Cheesecake de frutos rojos</h4></div><span class="font-headline-md text-headline-md text-primary">$5.000</span></li></ul></div><div class="bg-surface-container-low rounded-3xl p-8 border border-surface-container-highest flex flex-col shadow-sm reveal"><div class="flex items-center gap-4 mb-6"><div class="bg-secondary-container text-on-secondary-container p-4 rounded-2xl"><span class="material-symbols-outlined text-[32px]">local_drink</span></div><div><h3 class="font-headline-md text-headline-md text-on-surface">Bebidas y Cervezas</h3></div></div><ul class="flex flex-col gap-4"><li class="flex justify-between items-center border-b border-outline-variant/30 pb-4"><div><h4 class="font-label-bold text-label-bold text-on-surface">Línea Coca / Pepsi</h4><p class="font-caption text-caption text-on-surface-variant">237cc / 500cc / 1.5lt</p></div><span class="font-headline-md text-headline-md text-primary">$2.300 / $3.900 / $8.000</span></li><li class="flex justify-between items-center border-b border-outline-variant/30 pb-4"><div><h4 class="font-label-bold text-label-bold text-on-surface">Agua / Aquarium / Soda</h4><p class="font-caption text-caption text-on-surface-variant">500cc / 650cc</p></div><span class="font-headline-md text-headline-md text-primary">$3.500</span></li><li class="flex justify-between items-center border-b border-outline-variant/30 pb-4"><div><h4 class="font-label-bold text-label-bold text-on-surface">Cervezas (Stella / Patagonia / Quilmes)</h4><p class="font-caption text-caption text-on-surface-variant">Lata / Litro / Porrón</p></div><span class="font-headline-md text-headline-md text-primary">$6.800 / $11.500</span></li><li class="flex justify-between items-center pb-2"><div><h4 class="font-label-bold text-label-bold text-on-surface">Otras: Stout / Brahma / 1890 / Corona</h4></div><span class="font-headline-md text-headline-md text-primary">Consultar</span></li></ul><div class="flex items-center gap-4 mt-8 mb-6"><div class="bg-secondary-container text-on-secondary-container p-4 rounded-2xl"><span class="material-symbols-outlined text-[32px]">wine_bar</span></div><div><h3 class="font-headline-md text-headline-md text-on-surface">Vinos y Clásicos</h3></div></div><ul class="flex flex-col gap-4"><li class="flex justify-between items-center border-b border-outline-variant/30 pb-4"><div><h4 class="font-label-bold text-label-bold text-on-surface">Alaris / Lopez / Cosecha Tardía</h4><p class="font-caption text-caption text-on-surface-variant">Botella 3/4</p></div><span class="font-headline-md text-headline-md text-primary">$11.000</span></li><li class="flex justify-between items-center pb-2"><div><h4 class="font-label-bold text-label-bold text-on-surface">Vaso de Vino / Moscato</h4></div><span class="font-headline-md text-headline-md text-primary">$3.200</span></li></ul></div></div></section>
+<!-- 6. UBICACIÓN -->
+<section class="py-xl px-4 md:px-gutter max-w-container-max mx-auto" id="ubicacion">
+<div class="bg-surface rounded-3xl border border-outline-variant/30 shadow-md overflow-hidden flex flex-col md:flex-row reveal">
+<!-- Info & CTA -->
+<div class="w-full md:w-1/2 p-8 md:p-12 flex flex-col justify-center">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-4">Te esperamos</h2>
+<div class="flex flex-col gap-4 mb-8">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary mt-1" data-icon="location_on">location_on</span>
+<div>
+<h4 class="font-label-bold text-label-bold text-on-surface">Dirección</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Gral. Lucio N. Mansilla 3494<br/>Palermo, CABA</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary mt-1" data-icon="schedule">schedule</span>
+<div>
+<h4 class="font-label-bold text-label-bold text-on-surface">Horarios</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Martes a Sábado: 08:00 - 23:30<br/>Domingos: 19:00 - 23:30</p>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-low p-6 rounded-2xl border border-surface-container-highest mb-8" id="pedir">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">¿Tenés hambre? Pedí ahora</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Enviamos a domicilio o podés pasar a retirar por el local.</p>
+<div class="flex flex-col sm:flex-row gap-3">
+<a class="flex-1 flex items-center justify-center gap-2 bg-[#25D366] text-white font-label-bold text-label-bold px-4 py-3 rounded-xl hover:bg-[#20b858] transition-colors shadow-sm" href="https://wa.me/5491112345678?text=Hola!%20Quiero%20hacer%20un%20pedido" target="_blank" rel="noopener">
+<span class="material-symbols-outlined">chat</span>
+                                WhatsApp
+                            </a>
+<a class="flex-1 flex items-center justify-center gap-2 bg-[#FF4F00] text-white font-label-bold text-label-bold px-4 py-3 rounded-xl hover:bg-[#e64700] transition-colors shadow-sm" href="#">
+<span class="material-symbols-outlined">two_wheeler</span>
+                                Rappi
+                            </a>
+<a class="flex-1 flex items-center justify-center gap-2 bg-primary text-white font-label-bold text-label-bold px-4 py-3 rounded-xl hover:bg-primary-container hover:text-on-primary-container transition-colors shadow-sm" href="#"><img loading="lazy" decoding="async" alt="Pedidos Ya" class="h-6 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6cs1xFH1rErdPjRZmTL7kHpGhAWj-SghIwSD0qipxrqmcH4F7-9UmrG6cxSRLXaSbhbb5eqz4x7EEr7SoRubEsN2jo6oteZaL2f4e0VpltjqKxom0d1VymkSKc9igKEIS9rSzyqYc6Tw9AU46_RKCG7x65rDLF9tz3T1kd8fhfe4mtlE6qLzVd5KyWgfN_dCxxcNT-dpAgR1z3mmGszaZOhAGUmpRBghUDGQ3SyDOazZGPECc_4hAoogipcFgqectgV1h7Ht_8vubeNg"/> Pedidos Ya</a></div>
+</div>
+<div class="flex items-center gap-4">
+<span class="font-label-bold text-label-bold text-on-surface-variant">Seguinos:</span>
+<a class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface hover:bg-primary-container hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">photo_camera</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface hover:bg-primary-container hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">thumb_up</span>
+</a>
+</div>
+</div>
+<!-- Map Map -->
+<div class="w-full md:w-1/2 min-h-[400px] relative bg-surface-container">
+<img loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover" data-alt="A detailed map view focusing on Gral. Lucio N. Mansilla 3494 in Palermo, Buenos Aires. The style should be a clean, modern digital map interface with a clear red marker pin at the location, surrounded by street names and nearby parks." data-location="Buenos Aires" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFAOMXXnID3WMZm6gxKd3oXFKsQhRxru8o9c4OppeNLOf9Xo96HvfFlQ2U13G6Mu_8ZFQWgr5PYphLNfrrnNlDO0OILGQ-fOdrUKZAIabRXAWcaJaOIeQPmltYvjxgYEN-UM7BRsWijqXkF8aPjk2tFerrI9l6mEqT38xlUHTQ0gOMve31YqyCIWaVPBGKwj-c6ui6jL8E1PiCd_SA3aQ24n_LriujQnaHyFLDWl15PtmfyU24OB5E7w"/>
+<div class="absolute bottom-6 left-1/2 -translate-x-1/2">
+<a class="flex items-center gap-2 bg-surface text-primary font-label-bold text-label-bold px-6 py-2 rounded-full shadow-lg border border-outline-variant hover:bg-surface-container-low transition-colors" href="https://www.google.com/maps/dir/?api=1&destination=Gral.+Lucio+N.+Mansilla+3494,+CABA" target="_blank" rel="noopener">
+<span class="material-symbols-outlined text-[18px]">directions</span>
+                            Cómo llegar
+                        </a>
+</div>
+</div>
+</div>
+</section>
+<!-- 7. TESTIMONIOS (Glassmorphism Cards) -->
+<section class="py-xl px-4 md:px-gutter relative overflow-hidden bg-tertiary text-on-tertiary">
+<!-- Background Texture/Color -->
+<div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(circle, #ffffff 1.5px, transparent 1.5px); background-size: 24px 24px;"></div>
+<div class="relative z-10 max-w-container-max mx-auto">
+<div class="text-center mb-12">
+<h2 class="font-headline-lg text-headline-lg mb-2">Lo que dicen nuestros clientes</h2>
+<div class="rustic-divider w-24 mx-auto !opacity-50"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Review 1 -->
+<div class="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-3xl shadow-lg relative reveal">
+<div class="flex gap-1 text-secondary-fixed mb-4">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-body-md text-body-md text-white/90 mb-6 italic">"La mejor fugazzetta rellena que probé en mi vida. El lugar tiene esa mística de bodegón de barrio que ya no se encuentra. ¡Volveremos seguro!"</p>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary/80 flex items-center justify-center font-label-bold text-white">M</div>
+<div>
+<h4 class="font-label-bold text-label-bold text-white">Martín S.</h4>
+<span class="font-caption text-caption text-white/60">Local Guide</span>
+</div>
+</div>
+</div>
+<!-- Review 2 -->
+<div class="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-3xl shadow-lg relative reveal transform md:-translate-y-4">
+<div class="flex gap-1 text-secondary-fixed mb-4">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-body-md text-body-md text-white/90 mb-6 italic">"Pedimos 'La Pizza Punto y Banca' y superó las expectativas. Masa esponjosa por dentro y crocante por fuera. Abundante. Excelente atención."</p>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary/80 flex items-center justify-center font-label-bold text-white">C</div>
+<div class="">
+<h4 class="font-label-bold text-label-bold text-white">Carolina G.</h4>
+<span class="font-caption text-caption text-white/60">Hace 2 semanas</span>
+</div>
+</div>
+</div>
+<!-- Review 3 -->
+<div class="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-3xl shadow-lg relative reveal">
+<div class="flex gap-1 text-secondary-fixed mb-4">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star_half</span>
+</div>
+<p class="font-body-md text-body-md text-white/90 mb-6 italic">"Un clásico de Palermo que nunca falla. Voy con mis abuelos desde que soy chico y el sabor sigue intacto. Muy recomendables las empanadas de carne."</p>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-tertiary-container/80 text-on-tertiary-container flex items-center justify-center font-label-bold">J</div>
+<div>
+<h4 class="font-label-bold text-label-bold text-white">Juan Pablo R.</h4>
+<span class="font-caption text-caption text-white/60">Hace 1 mes</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- 8. FOOTER -->
+<footer class="w-full pt-xl pb-md bg-surface-container-highest dark:bg-inverse-surface border-t border-outline-variant">
+<div class="flex flex-col items-center gap-base px-4 text-center w-full max-w-container-max mx-auto">
+<a class="font-headline-md text-headline-md text-primary dark:text-primary-fixed mb-4" href="#">Los Muchachos de Punto y Banca</a>
+<p class="font-caption text-caption text-on-surface dark:text-inverse-on-surface mb-6 max-w-md">
+                Tradición al molde. Amasando con pasión desde 1940 en el corazón de Palermo.
+            </p>
+<nav class="flex flex-wrap justify-center gap-x-6 gap-y-2 mb-8">
+<a class="font-caption text-caption text-on-surface-variant hover:text-primary underline-offset-4 hover:underline opacity-90 hover:opacity-100 transition-opacity" href="#">Privacidad</a>
+<a class="font-caption text-caption text-on-surface-variant hover:text-primary underline-offset-4 hover:underline opacity-90 hover:opacity-100 transition-opacity" href="#">Términos</a>
+<a class="font-caption text-caption text-on-surface-variant hover:text-primary underline-offset-4 hover:underline opacity-90 hover:opacity-100 transition-opacity" href="#">Trabajá con nosotros</a>
+</nav>
+<div class="font-caption text-caption text-on-surface-variant opacity-70 border-t border-outline-variant/30 w-full pt-4 max-w-md">
+                © 2024 Los Muchachos de Punto y Banca. Tradición Porteña en Palermo.
+            </div>
+</div>
+</footer>
+<!-- Barra de pedido sticky: aparece cuando el usuario está mirando el Menú -->
+<div class="order-bar fixed bottom-0 left-0 w-full z-40 bg-surface/95 backdrop-blur-md border-t border-outline-variant/30 shadow-[0_-4px_16px_rgba(0,0,0,0.08)] px-4 py-3 hidden md:flex md:items-center md:justify-between md:gap-4" id="order-bar">
+<span class="font-label-bold text-label-bold text-on-surface">¿Ya elegiste? Hacé tu pedido ahora</span>
+<a class="flex items-center gap-2 bg-primary text-on-primary font-label-bold text-label-bold px-6 py-3 rounded-full hover:bg-primary-container hover:text-on-primary-container transition-colors" href="https://wa.me/5491112345678?text=Hola!%20Quiero%20hacer%20un%20pedido" target="_blank" rel="noopener">
+<span class="material-symbols-outlined">chat</span>
+                Pedir por WhatsApp
+            </a>
+</div>
+<!-- BottomNavBar / FAB (Mobile Only, Icons Only) -->
+<nav class="fixed bottom-8 right-6 z-50 flex flex-col items-end gap-4 w-auto animate-bounce-subtle md:hidden">
+<!-- Call FAB -->
+<a aria-label="Llamar" class="bg-primary text-on-primary p-4 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform" href="tel:+5491112345678">
+<span class="material-symbols-outlined" data-icon="call">call</span>
+</a>
+<!-- Main WhatsApp FAB (Active/Primary action) -->
+<a aria-label="Pedir por WhatsApp" class="bg-secondary-container text-on-secondary-container p-4 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform border border-secondary-fixed/50" href="https://wa.me/5491112345678?text=Hola!%20Quiero%20hacer%20un%20pedido" target="_blank" rel="noopener">
+<span class="material-symbols-outlined" data-icon="chat" style='font-variation-settings: "FILL" 1;'>chat</span>
+</a>
+</nav>
+<!-- Scripts -->
+<script>
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const sidebar = document.getElementById('mobile-sidebar');
+
+            if (menu.classList.contains('hidden')) {
+                // Abrir menú
+                menu.classList.remove('hidden');
+                requestAnimationFrame(() => {
+                    sidebar.classList.remove('-translate-x-full');
+                });
+                document.body.style.overflow = 'hidden';
+            } else {
+                // Cerrar menú
+                sidebar.classList.add('-translate-x-full');
+                document.body.style.overflow = '';
+                setTimeout(() => {
+                    menu.classList.add('hidden');
+                }, 300);
+            }
+        }
+
+        // Abre WhatsApp con el producto y precio precargados en el mensaje
+        function orderWhatsApp(productName, price) {
+            const phone = '5491112345678';
+            const text = encodeURIComponent(`Hola! Quiero pedir: ${productName} (${price})`);
+            window.open(`https://wa.me/${phone}?text=${text}`, '_blank', 'noopener');
+        }
+
+        // Desplegar / colapsar el resto de las pizzas chicas (solo mobile)
+        function togglePizzasChicas() {
+            const more = document.getElementById('pizzas-chicas-more');
+            const text = document.getElementById('pizzas-chicas-toggle-text');
+            const icon = document.getElementById('pizzas-chicas-toggle-icon');
+            const isHidden = more.classList.contains('hidden');
+
+            if (isHidden) {
+                more.classList.remove('hidden');
+                more.classList.add('grid');
+                text.textContent = 'Ver menos';
+                icon.textContent = 'expand_less';
+            } else {
+                more.classList.add('hidden');
+                more.classList.remove('grid');
+                text.textContent = 'Ver 17 pizzas más';
+                icon.textContent = 'expand_more';
+                more.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
+        // Cerrar el menú al tocar el fondo oscuro (fuera del panel)
+        document.getElementById('mobile-menu').addEventListener('click', function (e) {
+            if (e.target === this) {
+                toggleMobileMenu();
+            }
+        });
+
+        // Cerrar el menú con la tecla Escape
+        document.addEventListener('keydown', function (e) {
+            const menu = document.getElementById('mobile-menu');
+            if (e.key === 'Escape' && !menu.classList.contains('hidden')) {
+                toggleMobileMenu();
+            }
+        });
+
+        // Header: se oculta al bajar, reaparece al subir
+        (function () {
+            const header = document.getElementById('main-header');
+            let lastScrollY = window.scrollY;
+
+            window.addEventListener('scroll', function () {
+                const currentScrollY = window.scrollY;
+                if (currentScrollY > lastScrollY && currentScrollY > 150) {
+                    header.style.transform = 'translateY(-100%)';
+                } else {
+                    header.style.transform = 'translateY(0)';
+                }
+                lastScrollY = currentScrollY;
+            }, { passive: true });
+        })();
+
+        // Fade-in sutil de las secciones al entrar en pantalla
+        (function () {
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            const revealEls = document.querySelectorAll('.reveal');
+            if (prefersReducedMotion || !revealEls.length) {
+                revealEls.forEach(el => el.classList.add('reveal-visible'));
+                return;
+            }
+            const revealObserver = new IntersectionObserver(function (entries, observer) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('reveal-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+            revealEls.forEach(function (el) { revealObserver.observe(el); });
+        })();
+
+        // Barra de pedido sticky: aparece mientras la sección Menú está visible (desktop)
+        (function () {
+            const menuSection = document.getElementById('menu');
+            const orderBar = document.getElementById('order-bar');
+            if (!menuSection || !orderBar) return;
+
+            const orderBarObserver = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    orderBar.classList.toggle('order-bar-visible', entry.isIntersecting);
+                });
+            }, { threshold: 0.1 });
+            orderBarObserver.observe(menuSection);
+        })();
+
+        // Scroll suave para los links de anclas, compensando el header fijo
+        document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+            link.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href.length > 1) {
+                    const target = document.querySelector(href);
+                    if (target) {
+                        e.preventDefault();
+                        const headerOffset = 90;
+                        const targetPosition = target.getBoundingClientRect().top + window.scrollY - headerOffset;
+                        window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+                    }
+                }
+            });
+        });
+    </script>
+</body></html>
